@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UC HUB - Guia Rápido</title>
+    <style>
+        :root {
+            --bg-principal: #0b0c10;
+            --bg-card: #1f2833;
+            --cor-borda: #45a29e;
+            --cor-texto: #c5c6c7;
+            --cor-texto-claro: #ffffff;
+            --primary: #66fcf1;          
+            --shadow-glow: rgba(102, 252, 241, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--cor-texto);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .manual-container {
+            width: 100%; max-width: 700px; background: rgba(31, 40, 51, 0.6);
+            backdrop-filter: blur(10px); border-radius: 24px; padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 20px; }
+        header h1 { color: var(--cor-texto-claro); font-size: 2rem; margin-bottom: 6px; }
+        header p { font-size: 0.95rem; color: var(--primary); }
+
+        .passo-item { margin-bottom: 25px; background: rgba(11, 12, 16, 0.4); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); }
+        .passo-item h3 { color: var(--cor-texto-claro); font-size: 1.1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .passo-item h3 span { background: var(--primary); color: var(--bg-principal); width: 24px; height: 24px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; font-size: 0.85rem; font-weight: bold; }
+        .passo-item p { font-size: 0.9rem; line-height: 1.5; opacity: 0.85; }
+        .destaque-amarelo { color: #ffb86c; font-weight: bold; }
+
+        .footer-action { text-align: center; margin-top: 35px; }
+        .btn-avancar {
+            padding: 14px 50px; background: var(--primary); color: var(--bg-principal);
+            border: none; border-radius: 30px; cursor: pointer; font-weight: 700;
+            font-size: 1rem; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 0 15px var(--shadow-glow);
+        }
+        .btn-avancar:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--shadow-glow); }
+    </style>
+</head>
+<body>
+
+    <div class="manual-container">
+        <header>
+            <h1>Manual de Operação do Painel</h1>
+            <p>Siga as instruções de uso do ecossistema Lumina Clean</p>
+        </header>
+
+        <section class="conteudo-manual">
+            <div class="passo-item">
+                <h3><span>1</span> Seleção de Contexto (Modos)</h3>
+                <p>Escolha o perfil de potência antes de iniciar: O <strong>Modo Rápido</strong> reduz o tempo total pela metade para tarefas simples, o <strong>Modo Profundo</strong> dobra o tempo para limpezas pesadas, e o <strong>Modo Padrão</strong> mantém o equilíbrio de fábrica.</p>
+            </div>
+
+            <div class="passo-item">
+                <h3><span>2</span> Seleção de Cômodos em Fila</h3>
+                <p>Ao clicar nos cômodos mapeados, eles entrarão em espera dinâmica na cor <span class="destaque-amarelo">Amarela (Na Fila)</span>. O sistema organizará a ordem de limpeza conforme a sua escolha.</p>
+            </div>
+
+            <div class="passo-item">
+                <h3><span>3</span> Execução Sequencial (Um por Um)</h3>
+                <p>Para maior eficiência física, o robô limpará apenas um cômodo por vez. Quando o cronômetro do setor atual chegar a zero, ele limpa o status e avança de forma automatizada para o próximo cômodo da fila.</p>
+            </div>
+
+            <div class="passo-item">
+                <h3><span>4</span> Barreiras de Exclusão</h3>
+                <p>O <strong>Escritório</strong> possui uma restrição lógica de hardware por segurança. Ele aparece com bordas tracejadas vermelhas e bloqueia o acesso do robô para proteger cabos, eletrônicos ou evitar barulhos indesejados.</p>
+            </div>
+        </section>
+
+        <div class="footer-action">
+            <button class="btn-avancar" id="btnAvançar">AVANÇAR PARA O PAINEL</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btnAvançar').addEventListener('click', function() {
+            // Avança para o painel principal index.html que está na mesma pasta
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

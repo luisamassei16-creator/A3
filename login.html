@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Clean - Acesso</title>
+    <style>
+        :root {
+            --bg-principal: #0b0c10;
+            --bg-card: #1f2833;
+            --cor-borda: #45a29e;
+            --cor-texto: #c5c6c7;
+            --cor-texto-claro: #ffffff;
+            --primary: #66fcf1;          
+            --shadow-glow: rgba(102, 252, 241, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--cor-texto);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 450px;
+            background: rgba(31, 40, 51, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        header { text-align: center; margin-bottom: 30px; }
+        header h1 { color: var(--cor-texto-claro); font-size: 2.2rem; margin-bottom: 8px; letter-spacing: 0.5px; }
+        header p { font-size: 0.9rem; color: var(--primary); }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: var(--cor-texto-claro); font-weight: 500; }
+        
+        input, select {
+            width: 100%; padding: 12px 16px; background: #151a22;
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px;
+            color: #fff; font-size: 0.95rem; transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px rgba(102, 252, 241, 0.2); }
+        .divider { height: 1px; background: rgba(255, 255, 255, 0.08); margin: 25px 0; position: relative; }
+        .divider span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #19222d; padding: 0 10px; font-size: 0.75rem; text-transform: uppercase; }
+
+        .btn-conectar {
+            width: 100%; padding: 14px; background: transparent; color: var(--primary);
+            border: 2px solid var(--primary); border-radius: 8px; cursor: pointer;
+            font-weight: 600; font-size: 1rem; letter-spacing: 0.5px; transition: all 0.3s ease; margin-top: 10px;
+        }
+
+        .btn-conectar:hover { background: var(--primary); color: var(--bg-principal); box-shadow: 0 0 20px var(--shadow-glow); }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <header>
+            <h1>Lumina Clean</h1>
+            <p>Configuração e Login do Sistema</p>
+        </header>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">E-mail de Cadastro</label>
+                <input type="email" id="email" required placeholder="exemplo@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha de Acesso</label>
+                <input type="password" id="senha" required placeholder="••••••••">
+            </div>
+
+            <div class="divider"><span>Configuração do Robô</span></div>
+
+            <div class="form-group">
+                <label for="codigo-robo">Código de Autenticação do Robô</label>
+                <input type="text" id="codigo-robo" required placeholder="Ex: LMN-9942-X">
+            </div>
+
+            <div class="form-group">
+                <label for="nome-robo">Nome Personalizado do Smart Vacuum</label>
+                <input type="text" id="nome-robo" required placeholder="Ex: Meu Robô de Limpeza">
+            </div>
+
+            <div class="form-group">
+                <label for="modelo-robo">Modelo do Dispositivo</label>
+                <select id="modelo-robo">
+                    <option value="v1">Lumina Vacuum Pro v1</option>
+                    <option value="v2">Lumina Vacuum Ultra v2 (Mapeamento Laser)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-conectar">CONECTAR E VINCULAR</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Salva o nome e o código do robô no LocalStorage
+            localStorage.setItem('roboNome', document.getElementById('nome-robo').value);
+            localStorage.setItem('roboCodigo', document.getElementById('codigo-robo').value);
+            // Redireciona para a tela do manual
+            window.location.href = 'manual.html'; 
+        });
+    </script>
+</body>
+</html>
